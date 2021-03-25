@@ -1,10 +1,11 @@
-##MICRO BLOG PROJECT DEMO##
+## MICRO BLOG PROJECT DEMO ##
 Pull code and run
 http://localhost:2410/
+## Image demo ##
 ![](blog.jpg)
 
-**Account (user.sql)**
-1. bob@gmail.com
-2. duy@gmail.com
-3. alice@gmail.com
-4. ...
+## Account login (with password 123) ##
+1. admin@gmail.com (Role admin)
+2. hoaianhnotice@gmail.com (Role author)
+3. rose123@gmail.com (Role author)
+4. lylia@gmail.com (Role editor)
