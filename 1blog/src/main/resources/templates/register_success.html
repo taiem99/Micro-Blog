@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="layout :: head(title = 'Registration success')">
+   
+</head>
+<body>
+    <div class="container">
+        <h1>Register success </h1>
+    </div>
+    
+    <script>
+        var countDown = new Date().getTime()  + 1000;
+        var x = setInterval(() => {
+            var now = new Date().getTime();
+            var distance = countDown - now;
+            if(distance < 0){
+                clearInterval(x);
+                window.location.replace("/");
+            }
+        }, 200)
+    </script>
+</body>
+</html>

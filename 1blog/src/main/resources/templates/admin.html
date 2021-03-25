@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head th:replace = "layout :: head(title = 'Admin page')">
+</head>
+<body>
+    <div class="container">
+        <menu th:replace="layout :: menu(title='Admin Page')"></menu>
+        <table class="table">
+            <thead class="thead-dark">
+                <th scope="col">Username</th>
+                <th scope="col">Roles</th>
+                <th scope="col">Action</th>
+            </thead>
+            <tbody>
+                <tr th:each = "user : ${users}">
+                    <td th:text = "${user.fullname}"></td>
+                    <td>
+                        <span th:each="role : ${user.roles}" th:text = "${role.name}"></span>
+                    </td>
+                    <td>
+                        <a th:href="@{admin/users/{id}(id=${user.id})}"> Edit</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</body>
+</html>

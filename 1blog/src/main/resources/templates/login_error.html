@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="layout :: head">
+</head>  
+<body>
+    <h1>Error Login</h1>
+    <p id="demo"></p>
+    <script>
+        var countDown = new Date().getTime() + 5000;
+        var x = setInterval(() => {
+            var now = new Date().getTime();
+            var distance = countDown - now;
+            var seconds = Math.floor(distance / 1000);
+            document.getElementById("demo").innerHTML = seconds + " s";
+            if(distance < 0){
+                clearInterval(x);
+                document.getElementById("demo").innerHTML = "EXPIRED";
+                window.location.replace("/login");
+            }
+        }, 200)
+    </script>
+</body>
+</html>
