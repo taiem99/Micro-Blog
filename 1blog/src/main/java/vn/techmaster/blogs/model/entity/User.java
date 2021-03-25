@@ -103,6 +103,7 @@ public class User implements UserDetails {
         role.getUsers().remove(this);
     }
 
+
     //Constructor
 
     public User(String fullname, String email, String password){

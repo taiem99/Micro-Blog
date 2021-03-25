@@ -28,6 +28,7 @@ import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import vn.techmaster.blogs.exception.PostException;
 
 @Entity
 @Table(name = "post")
@@ -96,5 +97,24 @@ public class Post {
         tags.remove(tag);
         tag.getPosts().remove(this);
     }
+
+    private final static int PHOTO_LIMIT = 3;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "post_id")
+    private List<Photo> photos = new ArrayList<>();
+
+    public void addPhoto(Photo photo) throws PostException{
+        if(photos.size() == PHOTO_LIMIT){
+            throw new PostException("Amount photos per post must be smaller than  " + PHOTO_LIMIT);
+        }
+        photos.add(photo);
+        photo.setPost(this);
+    }
+
+    public void removePhoto(Photo photo){
+        photos.remove(photo);
+        photo.setPost(null);
+    }
+
 
 }
